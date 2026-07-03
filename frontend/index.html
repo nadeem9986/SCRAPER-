@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume Job Matches</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Resume Company Job Finder</p>
+          <h1 id="owner">Job matches</h1>
+          <p id="focus" class="focus"></p>
+        </div>
+        <a class="run-link" href="../storage/key_value_stores/default/INPUT.json">Input JSON</a>
+      </header>
+
+      <section class="stats" aria-label="Match summary">
+        <div>
+          <span id="totalJobs">0</span>
+          <p>Total jobs</p>
+        </div>
+        <div>
+          <span id="strongJobs">0</span>
+          <p>Strong</p>
+        </div>
+        <div>
+          <span id="goodJobs">0</span>
+          <p>Good</p>
+        </div>
+        <div>
+          <span id="weakJobs">0</span>
+          <p>Weak</p>
+        </div>
+      </section>
+
+      <section class="resume-panel" aria-label="Resume and company matching">
+        <div class="panel-head">
+          <div>
+            <h2>Check Jobs For A Resume</h2>
+            <p>Upload a resume, enter a company, then filter by location, experience, and role.</p>
+          </div>
+          <button id="clearResumeButton" type="button">Clear Resume</button>
+        </div>
+
+        <div class="resume-grid">
+          <label>
+            <span>Resume Upload</span>
+            <input id="resumeFile" type="file" accept=".txt,.md,.json,.pdf,.doc,.docx">
+          </label>
+          <label>
+            <span>Company Name</span>
+            <input id="targetCompanyInput" type="text" placeholder="IBM, Microsoft, Accenture">
+          </label>
+          <label>
+            <span>Preferred Location</span>
+            <input id="locationInput" type="text" placeholder="Bengaluru, India, Remote">
+          </label>
+          <label>
+            <span>Experience</span>
+            <select id="experienceFilter">
+              <option value="">Any experience</option>
+              <option value="entry">Entry level / fresher</option>
+              <option value="junior">Junior / associate</option>
+              <option value="professional">Professional</option>
+              <option value="internship">Internship</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="resume-actions">
+          <button id="applyResumeButton" type="button">Match Jobs</button>
+          <div id="resumeStatus" class="resume-status">Upload a resume to start matching jobs.</div>
+        </div>
+
+        <div class="resume-results">
+          <div>
+            <h2>Detected Skills</h2>
+            <div id="detectedSkillList" class="chips"></div>
+          </div>
+          <div>
+            <h2>Suggested Scraper Input</h2>
+            <pre id="suggestedInput">{}</pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Filters">
+        <label>
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Role, company, skill, location">
+        </label>
+        <label>
+          <span>Company</span>
+          <select id="companyFilter"></select>
+        </label>
+        <label>
+          <span>Match</span>
+          <select id="matchFilter">
+            <option value="">All matches</option>
+            <option>Strong Match</option>
+            <option>Good Match</option>
+            <option>Weak Match</option>
+          </select>
+        </label>
+        <label>
+          <span>Sort</span>
+          <select id="sortFilter">
+            <option value="resumeScore">Resume score</option>
+            <option value="score">Scraper score</option>
+            <option value="company">Company</option>
+            <option value="newest">Newest</option>
+          </select>
+        </label>
+        <label>
+          <span>Role Filter</span>
+          <input id="roleInput" type="text" placeholder="AI engineer, Python developer">
+        </label>
+      </section>
+
+      <section class="meta">
+        <div>
+          <h2>Companies</h2>
+          <div id="companyList" class="chips"></div>
+        </div>
+        <div>
+          <h2>Keywords</h2>
+          <div id="keywordList" class="chips"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <h2>Ranked Roles</h2>
+          <p id="resultCount">0 shown</p>
+        </div>
+        <div id="jobs" class="jobs"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

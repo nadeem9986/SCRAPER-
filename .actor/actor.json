@@ -1,0 +1,10 @@
+{
+  "actorSpecification": 1,
+  "name": "resume-company-job-finder",
+  "title": "Resume Company Job Finder",
+  "description": "Finds and ranks company careers listings against an AI/full-stack resume profile.",
+  "version": "1.0.0",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile"
+}

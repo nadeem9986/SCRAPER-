@@ -1,0 +1,94 @@
+{
+  "title": "Resume Company Job Finder Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "company": {
+      "title": "Company",
+      "type": "string",
+      "description": "Company name to search jobs for.",
+      "editor": "textfield",
+      "default": "IBM"
+    },
+    "careerUrl": {
+      "title": "Career page URL",
+      "type": "string",
+      "description": "Optional. Paste a company careers/jobs URL for more reliable results. Leave blank to auto-discover from the company name.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "companies": {
+      "title": "Companies",
+      "type": "array",
+      "description": "Optional multi-company mode. Each item can include name and careerUrl. If set, this overrides the single company field.",
+      "editor": "json",
+      "default": [
+        {
+          "name": "IBM",
+          "careerUrl": "https://www.ibm.com/in-en/careers/search"
+        }
+      ]
+    },
+    "keywords": {
+      "title": "Search keywords",
+      "type": "array",
+      "description": "Search terms to run on the target company's careers page.",
+      "editor": "stringList",
+      "default": [
+        "generative ai",
+        "python developer",
+        "software engineer",
+        "full stack developer",
+        "data scientist",
+        "machine learning",
+        "cloud engineer"
+      ]
+    },
+    "locations": {
+      "title": "Preferred locations",
+      "type": "array",
+      "description": "Location words used for ranking. The actor does not submit your resume or personal data.",
+      "editor": "stringList",
+      "default": [
+        "India",
+        "Bengaluru",
+        "Bangalore",
+        "Hyderabad",
+        "Pune"
+      ]
+    },
+    "maxJobs": {
+      "title": "Maximum jobs",
+      "type": "integer",
+      "description": "Maximum ranked jobs to save.",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "minScore": {
+      "title": "Minimum match score",
+      "type": "integer",
+      "description": "Only save jobs with at least this score.",
+      "default": 2,
+      "minimum": 0,
+      "maximum": 50
+    },
+    "entryLevelBoost": {
+      "title": "Boost entry-level roles",
+      "type": "boolean",
+      "description": "Give extra ranking weight to entry-level and early-career jobs.",
+      "default": true
+    },
+    "headless": {
+      "title": "Run browser headless",
+      "type": "boolean",
+      "description": "Use headless browser mode.",
+      "default": true
+    }
+  },
+  "required": [
+    "company",
+    "keywords",
+    "locations"
+  ]
+}

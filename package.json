@@ -1,0 +1,18 @@
+{
+  "name": "resume-company-job-finder",
+  "version": "1.0.0",
+  "description": "Apify actor that finds company jobs matching Yasar Ameen's AI/full-stack resume.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js",
+    "start:local": "node src/main.js",
+    "frontend": "node scripts/serve-frontend.js",
+    "check": "node --check src/main.js && node --check src/discovery.js && node --check src/extractor.js && node --check src/matcher.js && node --check src/output.js && node --check src/profile.js && node --check src/utils.js && node --check frontend/app.js && node --check scripts/serve-frontend.js"
+  },
+  "dependencies": {
+    "apify": "^3.4.2",
+    "crawlee": "^3.13.9",
+    "playwright": "^1.54.1"
+  },
+  "devDependencies": {}
+}

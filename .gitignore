@@ -1,0 +1,13 @@
+node_modules/
+storage/
+apify_storage/
+resume/
+debug.log
+.env
+.env.*
+*.log
+.agents/
+.codex/
+!frontend/data/.gitkeep
+frontend/data/jobs.json
+frontend/data/summary.json
