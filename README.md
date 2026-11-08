@@ -1,12 +1,21 @@
 # Resume Company Job Finder
 
-Apify actor for finding jobs at a target company that match Yasar Ameen H N's resume focus:
+Apify actor for finding jobs at a target company that match Nadeem A's resume focus:
 
-- Agentic AI, Generative AI, RAG, LLMs
-- Python, LangChain, LangGraph, FastAPI
-- React/full-stack engineering
-- SQL, data science, cloud, Azure AI
-- Entry-level software and AI roles
+- Python, LangChain, RAG, LLMs, generative AI
+- React/Next.js and full-stack engineering
+- Django/Flask backends, MySQL, REST APIs
+- Entry-level software and AI roles in Bengaluru or remote India
+
+Listings tied to gambling, betting, or real-money gaming are excluded from results
+(see `EXCLUDED_TERMS` in `src/profile.js`).
+
+## Credits
+
+Forked from [yasarameenhn/SCRAPER-](https://github.com/yasarameenhn/SCRAPER-),
+originally written by Yasar Ameen H N. This fork retargets the resume profile,
+keywords, and locations to Nadeem A; the scraping, ranking, and frontend code are
+his work (MIT License, copyright retained in `LICENSE`).
 
 ## Input Modes
 
