@@ -1,5 +1,10 @@
-import { RESUME_PROFILE } from './profile.js';
+import { EXCLUDED_TERMS, RESUME_PROFILE } from './profile.js';
 import { cleanText, unique } from './utils.js';
+
+export function isExcludedJob(job) {
+  const text = cleanText(`${job.title} ${job.company || ''} ${job.snippet || ''} ${job.description || ''} ${job.url}`).toLowerCase();
+  return EXCLUDED_TERMS.some((term) => text.includes(term));
+}
 
 const IMPORTANT_SKILLS = [
   ...RESUME_PROFILE.strongSkills,
