@@ -75,7 +75,8 @@ export function rankJob(job, context) {
 function includesTerm(text, term) {
   const normalizedTerm = cleanText(term).toLowerCase();
   if (!normalizedTerm) return false;
-  return text.includes(normalizedTerm);
+  const escaped = normalizedTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(?<![a-z0-9])${escaped}(?![a-z0-9])`).test(text);
 }
 
 function buildReasons(matchedSkills, matchedLocations, matchLabel) {
