@@ -241,7 +241,10 @@ function sendJson(response, status, payload) {
 
 function extractTerms(text, dictionary) {
   const lower = String(text || '').toLowerCase();
-  return dictionary.filter((term) => lower.includes(term.toLowerCase()));
+  return dictionary.filter((term) => {
+    const escaped = term.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`(?<![a-z0-9])${escaped}(?![a-z0-9])`).test(lower);
+  });
 }
 
 function buildHaystack(job) {
