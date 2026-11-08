@@ -1,7 +1,7 @@
 {
   "name": "resume-company-job-finder",
   "version": "1.0.0",
-  "description": "Apify actor that finds company jobs matching Yasar Ameen's AI/full-stack resume.",
+  "description": "Apify actor that finds company jobs matching Nadeem A's AI/full-stack resume. Fork of yasarameenhn/SCRAPER- by Yasar Ameen H N.",
   "type": "module",
   "scripts": {
     "start": "node src/main.js",
