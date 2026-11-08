@@ -1,6 +1,6 @@
 export const RESUME_PROFILE = {
   owner: 'Nadeem A',
-  headline: 'Software Engineer | Full-Stack & Applied AI',
+  headline: 'Software Engineer | Full-stack & AI Applications',
   summary:
     'Software engineer in Bengaluru (2025 Information Science graduate) building product and website interfaces at SmiRox. Personal projects span Python/LangChain RAG, Django, Next.js, Kotlin Android, and ESP32 firmware as a hobby.',
   strongSkills: [
