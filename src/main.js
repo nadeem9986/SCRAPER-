@@ -2,7 +2,7 @@ import { Actor } from 'apify';
 import { PlaywrightCrawler, log } from 'crawlee';
 import { resolveCareerUrl } from './discovery.js';
 import { extractJobs, searchCareerPage } from './extractor.js';
-import { rankJob } from './matcher.js';
+import { isExcludedJob, rankJob } from './matcher.js';
 import { DEFAULT_KEYWORDS, DEFAULT_LOCATIONS, RESUME_PROFILE } from './profile.js';
 import { writeFrontendData } from './output.js';
 import { normalizeUrl, parseCompanyInputs, unique } from './utils.js';
@@ -46,6 +46,7 @@ const crawler = new PlaywrightCrawler({
     log.info(`Found ${jobs.length} candidates for ${company.name} / "${keyword}"`);
 
     for (const job of jobs) {
+      if (isExcludedJob(job)) continue;
       const ranked = rankJob(job, {
         company: company.name,
         keyword,
